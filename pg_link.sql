@@ -1,3 +1,0 @@
-CREATE DATABASE LINK pg_link 
-CONNECT TO "postgres" IDENTIFIED BY "pass123" 
-USING 'PostgresDSN';
