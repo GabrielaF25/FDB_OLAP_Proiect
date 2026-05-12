@@ -1,0 +1,23 @@
+DEFAULT_SERVICE_LISTENER = XE
+
+SID_LIST_LISTENER =
+  (SID_LIST =
+    (SID_DESC =
+      (SID_NAME = PostgresDSN)
+      (ORACLE_HOME = C:\app\formg\product\21c\dbhomeXE)
+      (PROGRAM = dg4odbc)
+    )
+    (SID_DESC =
+      (SID_NAME = MongoDSN)
+      (ORACLE_HOME = C:\app\formg\product\21c\dbhomeXE)
+      (PROGRAM = dg4odbc)
+    )
+  )
+
+LISTENER =
+  (DESCRIPTION_LIST =
+    (DESCRIPTION =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = DESKTOP-78CKLO6)(PORT = 1521))
+      (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1521))
+    )
+  )
