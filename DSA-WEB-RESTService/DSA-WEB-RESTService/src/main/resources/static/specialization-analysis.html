@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Specialization Analysis</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body{
+            font-family: Arial;
+            background:#f5f5f5;
+            padding:30px;
+        }
+
+        .container{
+            background:white;
+            padding:25px;
+            border-radius:12px;
+        }
+
+        canvas{
+            margin-top:30px;
+        }
+
+        table{
+            width:100%;
+            border-collapse: collapse;
+            margin-top:30px;
+        }
+
+        th,td{
+            padding:10px;
+            border:1px solid #ddd;
+        }
+
+        th{
+            background:#d9c2b0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Specialization Analysis</h1>
+
+    <canvas id="chart"></canvas>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Specialization</th>
+            <th>Total Appointments</th>
+            <th>Unique Patients</th>
+            <th>Average Age</th>
+            <th>Completed</th>
+            <th>Cancelled</th>
+        </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+    </table>
+
+</div>
+
+<script>
+
+    fetch("http://localhost:8096/DSA-WEB-RESTService/rest/analytics/specialization-analysis")
+        .then(res => res.json())
+        .then(data => {
+
+            new Chart(document.getElementById("chart"), {
+                type: "bar",
+                data: {
+                    labels: data.map(x => x.specialization),
+                    datasets: [{
+                        label: "Appointments",
+                        data: data.map(x => x.totalAppointments)
+                    }]
+                }
+            });
+
+            const table = document.getElementById("tableBody");
+
+            data.forEach(x => {
+
+                table.innerHTML += `
+            <tr>
+                <td>${x.specialization}</td>
+                <td>${x.totalAppointments}</td>
+                <td>${x.uniquePatients}</td>
+                <td>${x.averagePatientAge}</td>
+                <td>${x.completedAppointments}</td>
+                <td>${x.cancelledAppointments}</td>
+            </tr>
+        `;
+            });
+
+        });
+
+</script>
+
+</body>
+</html>

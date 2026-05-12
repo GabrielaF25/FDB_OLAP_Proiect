@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Risk Patients Analysis</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f7f3ef;
+            padding: 30px;
+            color: #3a2d28;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        canvas {
+            margin-top: 30px;
+            max-height: 420px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #d8c3b2;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Risk Patients Analysis</h1>
+
+    <canvas id="riskChart"></canvas>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Smoking Status</th>
+            <th>Physical Activity</th>
+            <th>Blood Type</th>
+            <th>Total Records</th>
+            <th>Average Age</th>
+            <th>Unique Patients</th>
+        </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+</div>
+
+<script>
+    fetch("http://localhost:8096/DSA-WEB-RESTService/rest/analytics/risk-patients")
+        .then(res => res.json())
+        .then(data => {
+            new Chart(document.getElementById("riskChart"), {
+                type: "pie",
+                data: {
+                    labels: data.map(x =>
+                        `${x.smokingStatus || "Unknown"} / ${x.physicalActivity || "Unknown"}`
+                    ),
+                    datasets: [{
+                        label: "Unique Patients",
+                        data: data.map(x => x.uniquePatients)
+                    }]
+                }
+            });
+
+            const table = document.getElementById("tableBody");
+
+            data.forEach(x => {
+                table.innerHTML += `
+                    <tr>
+                        <td>${x.smokingStatus || ""}</td>
+                        <td>${x.physicalActivity || ""}</td>
+                        <td>${x.bloodType || ""}</td>
+                        <td>${x.totalRecords || 0}</td>
+                        <td>${x.averageAge || ""}</td>
+                        <td>${x.uniquePatients || 0}</td>
+                    </tr>
+                `;
+            });
+        });
+</script>
+
+</body>
+</html>

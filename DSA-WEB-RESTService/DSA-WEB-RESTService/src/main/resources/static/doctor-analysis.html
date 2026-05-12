@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Analysis</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f7f3ef;
+            padding: 30px;
+            color: #3a2d28;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        canvas {
+            margin-top: 30px;
+            max-height: 420px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #d8c3b2;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Doctor Analysis</h1>
+
+    <canvas id="doctorChart"></canvas>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Doctor</th>
+            <th>Specialization</th>
+            <th>Total Appointments</th>
+            <th>Unique Patients</th>
+            <th>Completed Cases</th>
+            <th>Average Patient Age</th>
+        </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+    </table>
+
+</div>
+
+<script>
+
+    fetch("http://localhost:8096/DSA-WEB-RESTService/rest/analytics/doctor-analysis")
+        .then(res => res.json())
+        .then(data => {
+
+            new Chart(document.getElementById("doctorChart"), {
+                type: "bar",
+                data: {
+                    labels: data.map(x => x.doctorName),
+                    datasets: [{
+                        label: "Completed Cases",
+                        data: data.map(x => x.completedCases)
+                    }]
+                }
+            });
+
+            const table = document.getElementById("tableBody");
+
+            data.forEach(x => {
+
+                table.innerHTML += `
+            <tr>
+                <td>${x.doctorName || ""}</td>
+                <td>${x.specialization || ""}</td>
+                <td>${x.totalAppointments || 0}</td>
+                <td>${x.uniquePatients || 0}</td>
+                <td>${x.completedCases || 0}</td>
+                <td>${x.avgPatientAge || ""}</td>
+            </tr>
+        `;
+            });
+
+        });
+
+</script>
+
+</body>
+</html>

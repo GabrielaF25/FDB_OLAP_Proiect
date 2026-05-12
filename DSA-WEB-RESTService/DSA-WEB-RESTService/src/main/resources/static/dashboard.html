@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Healthcare Analytics Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f3ef;
+            margin: 0;
+            padding: 30px;
+            color: #3a2d28;
+        }
+
+        h1 {
+            text-align: center;
+            color: #5a3e36;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .charts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .chart-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        th {
+            background: #d8c3b2;
+            color: #3a2d28;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Healthcare Analytics Dashboard</h1>
+
+<div class="cards">
+    <div class="card">
+        <h3>Total Patients</h3>
+        <h2 id="totalPatients">0</h2>
+    </div>
+
+    <div class="card">
+        <h3>Total Appointments</h3>
+        <h2 id="totalAppointments">0</h2>
+    </div>
+
+    <div class="card">
+        <h3>Total Doctors</h3>
+        <h2 id="totalDoctors">0</h2>
+    </div>
+</div>
+
+<div class="charts">
+    <div class="chart-box">
+        <h3>Appointments by Specialization</h3>
+        <canvas id="specializationChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <h3>Patients by Smoking Status</h3>
+        <canvas id="smokingChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <h3>Patients by Clinic Location</h3>
+        <canvas id="clinicChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <h3>Appointments by Status</h3>
+        <canvas id="statusChart"></canvas>
+    </div>
+</div>
+
+<h2>Integrated Healthcare Data</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Patient</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Doctor</th>
+        <th>Specialization</th>
+        <th>Clinic</th>
+        <th>Location</th>
+        <th>Status</th>
+        <th>Occupation</th>
+        <th>Smoking</th>
+    </tr>
+    </thead>
+    <tbody id="dataTable"></tbody>
+</table>
+
+<script>
+    const API_URL = "http://localhost:8096/DSA-WEB-RESTService/rest/analytics/healthcare";
+    fetch(API_URL)
+        .then(response => response.json())
+        .then(data => {
+            buildDashboard(data);
+        })
+        .catch(error => {
+            console.error("Error loading data:", error);
+            alert("Could not load data from REST endpoint.");
+        });
+
+    function countBy(data, key) {
+        const result = {};
+
+        data.forEach(item => {
+            const value = item[key] || "Unknown";
+            result[value] = (result[value] || 0) + 1;
+        });
+
+        return result;
+    }
+
+    function uniqueCount(data, key) {
+        return new Set(data.map(item => item[key])).size;
+    }
+
+    function buildDashboard(data) {
+        document.getElementById("totalPatients").innerText = uniqueCount(data, "patientId");
+        document.getElementById("totalAppointments").innerText = uniqueCount(data, "appointmentId");
+        document.getElementById("totalDoctors").innerText = uniqueCount(data, "doctorId");
+
+        createChart("specializationChart", countBy(data, "specialization"), "bar");
+        createChart("smokingChart", countBy(data, "smokingStatus"), "pie");
+        createChart("clinicChart", countBy(data, "clinicLocation"), "bar");
+        createChart("statusChart", countBy(data, "appointmentStatus"), "doughnut");
+
+        const table = document.getElementById("dataTable");
+
+        data.forEach(item => {
+            const row = `
+                <tr>
+                    <td>${item.patientName || ""}</td>
+                    <td>${item.age || ""}</td>
+                    <td>${item.gender || ""}</td>
+                    <td>${item.doctorName || ""}</td>
+                    <td>${item.specialization || ""}</td>
+                    <td>${item.clinicName || ""}</td>
+                    <td>${item.clinicLocation || ""}</td>
+                    <td>${item.appointmentStatus || ""}</td>
+                    <td>${item.occupation || ""}</td>
+                    <td>${item.smokingStatus || ""}</td>
+                </tr>
+            `;
+
+            table.innerHTML += row;
+        });
+    }
+
+    function createChart(canvasId, dataObject, chartType) {
+        new Chart(document.getElementById(canvasId), {
+            type: chartType,
+            data: {
+                labels: Object.keys(dataObject),
+                datasets: [{
+                    label: "Total",
+                    data: Object.values(dataObject)
+                }]
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

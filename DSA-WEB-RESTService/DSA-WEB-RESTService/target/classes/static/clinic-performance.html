@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clinic Performance</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f7f3ef;
+            padding: 30px;
+            color: #3a2d28;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #d8c3b2;
+        }
+
+        canvas {
+            margin-top: 30px;
+            max-height: 420px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Clinic Performance Analysis</h1>
+
+    <canvas id="clinicChart"></canvas>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Clinic</th>
+            <th>Location</th>
+            <th>Total Appointments</th>
+            <th>Total Doctors</th>
+            <th>Total Patients</th>
+            <th>Average Patient Age</th>
+            <th>Completion Rate (%)</th>
+        </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+</div>
+
+<script>
+    fetch("http://localhost:8096/DSA-WEB-RESTService/rest/analytics/clinic-performance")
+        .then(res => res.json())
+        .then(data => {
+            new Chart(document.getElementById("clinicChart"), {
+                type: "bar",
+                data: {
+                    labels: data.map(x => x.clinicName),
+                    datasets: [{
+                        label: "Completion Rate (%)",
+                        data: data.map(x => x.completionRate)
+                    }]
+                }
+            });
+
+            const table = document.getElementById("tableBody");
+
+            data.forEach(x => {
+                table.innerHTML += `
+                    <tr>
+                        <td>${x.clinicName || ""}</td>
+                        <td>${x.clinicLocation || ""}</td>
+                        <td>${x.totalAppointments || 0}</td>
+                        <td>${x.totalDoctors || 0}</td>
+                        <td>${x.totalPatients || 0}</td>
+                        <td>${x.avgPatientAge || ""}</td>
+                        <td>${x.completionRate || 0}</td>
+                    </tr>
+                `;
+            });
+        });
+</script>
+
+</body>
+</html>

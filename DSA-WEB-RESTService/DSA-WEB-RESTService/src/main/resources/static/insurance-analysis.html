@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insurance Analysis</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f7f3ef;
+            padding: 30px;
+            color: #3a2d28;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        canvas {
+            margin-top: 30px;
+            max-height: 420px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #d8c3b2;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Insurance Analysis</h1>
+
+    <canvas id="insuranceChart"></canvas>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Insurance Provider</th>
+            <th>Total Appointments</th>
+            <th>Total Patients</th>
+            <th>Average Age</th>
+            <th>Smokers Count</th>
+        </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+</div>
+
+<script>
+    fetch("http://localhost:8096/DSA-WEB-RESTService/rest/analytics/insurance-analysis", {
+        headers: { "Accept": "application/json" }
+    })
+        .then(res => res.json())
+        .then(data => {
+            new Chart(document.getElementById("insuranceChart"), {
+                type: "doughnut",
+                data: {
+                    labels: data.map(x => x.insuranceProvider || "Unknown"),
+                    datasets: [{
+                        label: "Total Patients",
+                        data: data.map(x => x.totalPatients)
+                    }]
+                }
+            });
+
+            const table = document.getElementById("tableBody");
+
+            data.forEach(x => {
+                table.innerHTML += `
+                    <tr>
+                        <td>${x.insuranceProvider || ""}</td>
+                        <td>${x.totalAppointments || 0}</td>
+                        <td>${x.totalPatients || 0}</td>
+                        <td>${x.avgAge || ""}</td>
+                        <td>${x.smokersCount || 0}</td>
+                    </tr>
+                `;
+            });
+        });
+</script>
+
+</body>
+</html>
