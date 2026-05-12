@@ -1,0 +1,711 @@
+[{
+  "_id": {
+    "$oid": "69c64c8515865658051e2e87"
+  },
+  "patient_id": 1,
+  "allergies": [
+    "Penicillin"
+  ],
+  "chronic_conditions": [
+    "Hypertension"
+  ],
+  "medication_history": [
+    {
+      "medication": "Perindopril",
+      "dose": "5mg",
+      "frequency": "once per day"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient prefers minimal waiting time"
+},
+{
+  "_id": {
+    "$oid": "69c64d9715865658051e2e89"
+  },
+  "patient_id": 2,
+  "allergies": [
+    "Dust"
+  ],
+  "chronic_conditions": [
+    "Asthma"
+  ],
+  "medication_history": [
+    {
+      "medication": "Ventolin",
+      "dose": "100mcg",
+      "frequency": "as needed"
+    }
+  ],
+  "appointment_preferences": "Afternoon",
+  "notes": "Patient requires inhaler access at all times"
+},
+{
+  "_id": {
+    "$oid": "69c64e8d15865658051e2e8f"
+  },
+  "patient_id": 3,
+  "allergies": [
+    "Ibuprofen"
+  ],
+  "chronic_conditions": [
+    "Migraine"
+  ],
+  "medication_history": [
+    {
+      "medication": "Sumatriptan",
+      "dose": "50mg",
+      "frequency": "when needed"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient reports frequent headaches during stressful periods"
+},
+{
+  "_id": {
+    "$oid": "69c64f8015865658051e2e95"
+  },
+  "patient_id": 4,
+  "allergies": [],
+  "chronic_conditions": [
+    "Arthritis"
+  ],
+  "medication_history": [
+    {
+      "medication": "Ibuprofen",
+      "dose": "400mg",
+      "frequency": "twice per day"
+    }
+  ],
+  "appointment_preferences": "Evening",
+  "notes": "Patient complains about joint pain, especially in cold weather"
+},
+{
+  "_id": {
+    "$oid": "69c64fd715865658051e2e9b"
+  },
+  "patient_id": 5,
+  "allergies": [
+    "Gluten"
+  ],
+  "chronic_conditions": [
+    "Diabetes Type 1"
+  ],
+  "medication_history": [
+    {
+      "medication": "Insulin",
+      "dose": "10 units",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient monitors blood sugar levels daily"
+},
+{
+  "_id": {
+    "$oid": "69c6502f15865658051e2ea1"
+  },
+  "patient_id": 6,
+  "allergies": [
+    "Aspirin"
+  ],
+  "chronic_conditions": [
+    "Heart Disease"
+  ],
+  "medication_history": [
+    {
+      "medication": "Atorvastatin",
+      "dose": "20mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient requires regular cardiovascular monitoring"
+},
+{
+  "_id": {
+    "$oid": "69c650df15865658051e2ea7"
+  },
+  "patient_id": 7,
+  "allergies": [],
+  "chronic_conditions": [],
+  "medication_history": [],
+  "appointment_preferences": "Afternoon",
+  "notes": "Patient is in good general health, routine check-up"
+},
+{
+  "_id": {
+    "$oid": "69c6513015865658051e2ead"
+  },
+  "patient_id": 8,
+  "allergies": [
+    "Lactose"
+  ],
+  "chronic_conditions": [
+    "Gastritis"
+  ],
+  "medication_history": [
+    {
+      "medication": "Omeprazole",
+      "dose": "20mg",
+      "frequency": "once per day"
+    }
+  ],
+  "appointment_preferences": "Afternoon",
+  "notes": "Patient reports stomach discomfort after spicy foods"
+},
+{
+  "_id": {
+    "$oid": "69c6517015865658051e2eb3"
+  },
+  "patient_id": 9,
+  "allergies": [],
+  "chronic_conditions": [
+    "Myopia"
+  ],
+  "medication_history": [],
+  "appointment_preferences": "Midday",
+  "notes": "Patient uses corrective lenses and reports eye strain from screen usage"
+},
+{
+  "_id": {
+    "$oid": "69c651b215865658051e2eb9"
+  },
+  "patient_id": 10,
+  "allergies": [
+    "Pollen"
+  ],
+  "chronic_conditions": [
+    "Chronic Bronchitis"
+  ],
+  "medication_history": [
+    {
+      "medication": "Salbutamol",
+      "dose": "2 puffs",
+      "frequency": "as needed"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient experiences breathing difficulties during seasonal changes"
+},
+{
+  "_id": {
+    "$oid": "69c6522a15865658051e2ebf"
+  },
+  "patient_id": 11,
+  "allergies": [],
+  "chronic_conditions": [
+    "Kidney Stones"
+  ],
+  "medication_history": [
+    {
+      "medication": "Tamsulosin",
+      "dose": "0.4mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient advised to increase water intake"
+},
+{
+  "_id": {
+    "$oid": "69c6527615865658051e2ec5"
+  },
+  "patient_id": 12,
+  "allergies": [
+    "Seafood"
+  ],
+  "chronic_conditions": [],
+  "medication_history": [],
+  "appointment_preferences": "Midday",
+  "notes": "Patient scheduled for imaging investigation"
+},
+{
+  "_id": {
+    "$oid": "69c653fe15865658051e2ecb"
+  },
+  "patient_id": 13,
+  "allergies": [
+    "Dust"
+  ],
+  "chronic_conditions": [
+    "Sinusitis"
+  ],
+  "medication_history": [
+    {
+      "medication": "Nasal Spray",
+      "dose": "2 sprays",
+      "frequency": "twice daily"
+    }
+  ],
+  "appointment_preferences": "Evening",
+  "notes": "Patient complains of nasal congestion and headaches"
+},
+{
+  "_id": {
+    "$oid": "69c6546015865658051e2ed1"
+  },
+  "patient_id": 14,
+  "allergies": [
+    "Nuts"
+  ],
+  "chronic_conditions": [
+    "Obesity"
+  ],
+  "medication_history": [],
+  "appointment_preferences": "Morning",
+  "notes": "Patient is following a dietary plan for weight loss"
+},
+{
+  "_id": {
+    "$oid": "69c654b115865658051e2ed7"
+  },
+  "patient_id": 15,
+  "allergies": [],
+  "chronic_conditions": [
+    "Anxiety"
+  ],
+  "medication_history": [
+    {
+      "medication": "Sertraline",
+      "dose": "50mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Evening",
+  "notes": "Patient experiences stress related to work environment"
+},
+{
+  "_id": {
+    "$oid": "69c654f815865658051e2edd"
+  },
+  "patient_id": 16,
+  "allergies": [
+    "Latex"
+  ],
+  "chronic_conditions": [
+    "Eczema"
+  ],
+  "medication_history": [
+    {
+      "medication": "Hydrocortisone cream",
+      "dose": "apply locally",
+      "frequency": "twice daily"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient has sensitive skin and requires special care products"
+},
+{
+  "_id": {
+    "$oid": "69c655aa15865658051e2ee3"
+  },
+  "patient_id": 17,
+  "allergies": [],
+  "chronic_conditions": [
+    "Breast Cancer"
+  ],
+  "medication_history": [
+    {
+      "medication": "Tamoxifen",
+      "dose": "20mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Afternoon",
+  "notes": "Patient undergoing long-term treatment and monitoring"
+},
+{
+  "_id": {
+    "$oid": "69c655ef15865658051e2ee9"
+  },
+  "patient_id": 18,
+  "allergies": [],
+  "chronic_conditions": [],
+  "medication_history": [],
+  "appointment_preferences": "Morning",
+  "notes": "Patient scheduled for routine eye examination"
+},
+{
+  "_id": {
+    "$oid": "69c6563615865658051e2eef"
+  },
+  "patient_id": 19,
+  "allergies": [
+    "Aspirin"
+  ],
+  "chronic_conditions": [
+    "Hypertension"
+  ],
+  "medication_history": [
+    {
+      "medication": "Enalapril",
+      "dose": "10mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Afternoon",
+  "notes": "Patient requires regular blood pressure monitoring"
+},
+{
+  "_id": {
+    "$oid": "69c6575e15865658051e2ef5"
+  },
+  "patient_id": 20,
+  "allergies": [
+    "Pollen"
+  ],
+  "chronic_conditions": [],
+  "medication_history": [],
+  "appointment_preferences": "Morning",
+  "notes": "Patient reports seasonal allergies"
+},
+{
+  "_id": {
+    "$oid": "69c657a815865658051e2efb"
+  },
+  "patient_id": 21,
+  "allergies": [
+    "Lactose"
+  ],
+  "chronic_conditions": [
+    "Ulcer"
+  ],
+  "medication_history": [
+    {
+      "medication": "Pantoprazole",
+      "dose": "40mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Afternoon",
+  "notes": "Patient advised to avoid acidic foods"
+},
+{
+  "_id": {
+    "$oid": "69c6580515865658051e2f01"
+  },
+  "patient_id": 22,
+  "allergies": [],
+  "chronic_conditions": [
+    "Thyroid Disorder"
+  ],
+  "medication_history": [
+    {
+      "medication": "Levothyroxine",
+      "dose": "50mcg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient requires periodic hormone level monitoring"
+},
+{
+  "_id": {
+    "$oid": "69c6585315865658051e2f07"
+  },
+  "patient_id": 23,
+  "allergies": [],
+  "chronic_conditions": [
+    "Back Pain"
+  ],
+  "medication_history": [
+    {
+      "medication": "Diclofenac",
+      "dose": "50mg",
+      "frequency": "twice daily"
+    }
+  ],
+  "appointment_preferences": "Evening",
+  "notes": "Patient reports chronic lower back pain due to sedentary work"
+},
+{
+  "_id": {
+    "$oid": "69c6589815865658051e2f0d"
+  },
+  "patient_id": 24,
+  "allergies": [
+    "Pollen"
+  ],
+  "chronic_conditions": [],
+  "medication_history": [],
+  "appointment_preferences": "Midday",
+  "notes": "Routine gynecological check-up"
+},
+{
+  "_id": {
+    "$oid": "69c658ef15865658051e2f13"
+  },
+  "patient_id": 25,
+  "allergies": [
+    "Penicillin"
+  ],
+  "chronic_conditions": [
+    "Heart Disease"
+  ],
+  "medication_history": [
+    {
+      "medication": "Bisoprolol",
+      "dose": "5mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient requires continuous cardiac monitoring"
+},
+{
+  "_id": {
+    "$oid": "69c6593315865658051e2f19"
+  },
+  "patient_id": 26,
+  "allergies": [
+    "Cosmetics"
+  ],
+  "chronic_conditions": [
+    "Acne"
+  ],
+  "medication_history": [
+    {
+      "medication": "Benzoyl Peroxide",
+      "dose": "apply locally",
+      "frequency": "once daily"
+    }
+  ],
+  "appointment_preferences": "Midday",
+  "notes": "Patient undergoing treatment for skin condition"
+},
+{
+  "_id": {
+    "$oid": "69c6598015865658051e2f1f"
+  },
+  "patient_id": 27,
+  "allergies": [],
+  "chronic_conditions": [
+    "Epilepsy"
+  ],
+  "medication_history": [
+    {
+      "medication": "Valproate",
+      "dose": "500mg",
+      "frequency": "twice daily"
+    }
+  ],
+  "appointment_preferences": "Afternoon",
+  "notes": "Patient requires regular neurological follow-up"
+},
+{
+  "_id": {
+    "$oid": "69c65a7115865658051e2f25"
+  },
+  "patient_id": 28,
+  "allergies": [],
+  "chronic_conditions": [
+    "PCOS"
+  ],
+  "medication_history": [
+    {
+      "medication": "Metformin",
+      "dose": "500mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient undergoing hormonal treatment"
+},
+{
+  "_id": {
+    "$oid": "69c65ab715865658051e2f2b"
+  },
+  "patient_id": 29,
+  "allergies": [
+    "Dust"
+  ],
+  "chronic_conditions": [
+    "Asthma"
+  ],
+  "medication_history": [
+    {
+      "medication": "Salbutamol",
+      "dose": "2 puffs",
+      "frequency": "as needed"
+    }
+  ],
+  "appointment_preferences": "Afternoon",
+  "notes": "Patient experiences breathing difficulties during cold seasons"
+},
+{
+  "_id": {
+    "$oid": "69c65b5e15865658051e2f31"
+  },
+  "patient_id": 30,
+  "allergies": [],
+  "chronic_conditions": [
+    "Depression"
+  ],
+  "medication_history": [
+    {
+      "medication": "Escitalopram",
+      "dose": "10mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient undergoing psychological therapy and monitoring"
+},
+{
+  "_id": {
+    "$oid": "69c65d3615865658051e2f3d"
+  },
+  "patient_id": 19,
+  "allergies": [
+    "Aspirin"
+  ],
+  "chronic_conditions": [
+    "Hypertension"
+  ],
+  "medication_history": [
+    {
+      "medication": "Enalapril",
+      "dose": "10mg",
+      "frequency": "daily"
+    },
+    {
+      "medication": "Amlodipine",
+      "dose": "5mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Afternoon",
+  "notes": "Patient requires regular blood pressure monitoring"
+},
+{
+  "_id": {
+    "$oid": "69c65d4015865658051e2f3f"
+  },
+  "patient_id": 25,
+  "allergies": [
+    "Penicillin"
+  ],
+  "chronic_conditions": [
+    "Heart Disease",
+    "Hypertension"
+  ],
+  "medication_history": [
+    {
+      "medication": "Bisoprolol",
+      "dose": "5mg",
+      "frequency": "daily"
+    },
+    {
+      "medication": "Atorvastatin",
+      "dose": "20mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient requires cardiac and blood pressure follow-up"
+},
+{
+  "_id": {
+    "$oid": "69c65ebc15865658051e2f57"
+  },
+  "patient_id": 19,
+  "allergies": [
+    "Aspirin"
+  ],
+  "chronic_conditions": [
+    "Hypertension",
+    "Heart Disease"
+  ],
+  "medication_history": [
+    {
+      "medication": "Enalapril",
+      "dose": "10mg",
+      "frequency": "daily"
+    },
+    {
+      "medication": "Amlodipine",
+      "dose": "5mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Afternoon",
+  "notes": "Patient requires regular blood pressure and cardiac monitoring"
+},
+{
+  "_id": {
+    "$oid": "69c65ec415865658051e2f59"
+  },
+  "patient_id": 25,
+  "allergies": [
+    "Penicillin"
+  ],
+  "chronic_conditions": [
+    "Heart Disease",
+    "Hypertension"
+  ],
+  "medication_history": [
+    {
+      "medication": "Bisoprolol",
+      "dose": "5mg",
+      "frequency": "daily"
+    },
+    {
+      "medication": "Atorvastatin",
+      "dose": "20mg",
+      "frequency": "daily"
+    }
+  ],
+  "appointment_preferences": "Morning",
+  "notes": "Patient needs long-term cardiovascular follow-up"
+},
+{
+  "_id": {
+    "$oid": "69c65ecc15865658051e2f5b"
+  },
+  "patient_id": 15,
+  "allergies": [],
+  "chronic_conditions": [
+    "Anxiety",
+    "Insomnia"
+  ],
+  "medication_history": [
+    {
+      "medication": "Sertraline",
+      "dose": "50mg",
+      "frequency": "daily"
+    },
+    {
+      "medication": "Melatonin",
+      "dose": "3mg",
+      "frequency": "before sleep"
+    }
+  ],
+  "appointment_preferences": "Evening",
+  "notes": "Patient reports stress and sleep difficulties"
+},
+{
+  "_id": {
+    "$oid": "69c65ee915865658051e2f5f"
+  },
+  "patient_id": 27,
+  "allergies": [],
+  "chronic_conditions": [
+    "Epilepsy",
+    "Migraine"
+  ],
+  "medication_history": [
+    {
+      "medication": "Valproate",
+      "dose": "500mg",
+      "frequency": "twice daily"
+    },
+    {
+      "medication": "Sumatriptan",
+      "dose": "50mg",
+      "frequency": "when needed"
+    }
+  ],
+  "appointment_preferences": "Afternoon",
+  "notes": "Patient requires neurological monitoring and stress reduction"
+}]

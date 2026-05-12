@@ -1,0 +1,2 @@
+CREATE DATABASE LINK mongo_link
+  USING 'MongoDSN';
